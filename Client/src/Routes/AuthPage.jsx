@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Toast, showToast } from "../Components/Toast";
-
+import Navbar from "../Routes/navbar";
 const AuthPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -120,60 +120,14 @@ const AuthPage = () => {
     "h-10 w-36 bg-[#120013ff] hover:bg-gray-900 flex flex-wrap items-center text-lg font-normal border-2 border-[#e0195bff] text-white justify-center";
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-[#111043] absolute w-full min-h-[100vh]">
       <Toast />
-      <header className="sticky top-0 bg-[#210423ff]">
-        <div className="container mx-auto flex flex-wrap p-0.25 flex-col md:flex-row items-center">
-          <div className="ml-24 mt-2 mb-2 w-48 ">
-            <a
-              href="/"
-              className="flex title-font font-normal items-center text-gray-900 mb-4 md:mb-0"
-            >
-              <img
-                src={new URL(`../assets/logo.png`, import.meta.url)}
-                alt="unavailable"
-              />
-            </a>
-          </div>
-          <nav className="md:ml-auto md:mr-20 flex space-x-20 flex-wrap items-center text-xl justify-center">
-            <button
-              className={
-                formType === "signin"
-                  ? selectedButtonStyle
-                  : unSelectedButtonStyle
-              }
-              onClick={() => {
-                changeFormType("signin");
-              }}
-            >
-              Login
-            </button>
-            <button
-              className={
-                formType === "signin"
-                  ? unSelectedButtonStyle
-                  : selectedButtonStyle
-              }
-              onClick={() => {
-                changeFormType("signup");
-              }}
-            >
-              SignUp
-            </button>
-          </nav>
-        </div>
-      </header>
-      <div className="bg-[#120013ff] py-20">
-        <section className="ml-20 text-gray-600 body-font">
-          <div className="container mx-auto flex px-5 md:flex-row flex-col items-center">
-            <div className=" mx-28 lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
-              <img
-                className="object-cover object-center rounded"
-                alt="hero"
-                src={new URL(`../assets/authpagegif.gif`, import.meta.url)}
-              />
-            </div>
-            <section className="text-gray-600 body-font">
+      <Navbar/>
+      <div className="mt-24 w-full">
+        <section className="w-full">
+          <div className="w-full flex justify-center md:flex-row flex-col items-center">
+            
+            <div className="text-gray-600 body-font">
               <div className="flex flex-col items-center justify-center border-t-2 border-[#e0195bff] w-80 px-8 py-16 bg-gray-900 rounded-md">
                 <div className="flex flex-col items-center justify-center w-full">
                   <h1 className="text-4xl font-black text-white">
@@ -244,7 +198,7 @@ const AuthPage = () => {
                   </button>
                 </div>
               </div>
-            </section>
+            </div> 
           </div>
         </section>
       </div>
